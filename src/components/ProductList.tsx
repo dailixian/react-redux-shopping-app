@@ -1,13 +1,20 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Product } from "../redux/dataType";
+import { fetchProducts } from "../redux/productActionCreator";
+import { RootStoreType } from "../redux/store";
 import ProductCard from "./ProductCard";
 
-interface ProductListProp {
+interface ProductListProps {
   products: Array<Product>;
+  fetchProducts: any;
 }
 
 interface ProductListState {}
-export class ProductList extends Component<ProductListProp, ProductListState> {
+export class ProductList extends Component<ProductListProps, ProductListState> {
+  componentDidMount(): void {
+    this.props.fetchProducts();
+  }
   render() {
     const { products } = this.props;
     const productsJsx = products.map((p: any) => (
@@ -19,4 +26,12 @@ export class ProductList extends Component<ProductListProp, ProductListState> {
   }
 }
 
-export default ProductList;
+const mapState = (store: RootStoreType) => ({
+  products: store.productReducerState.products,
+});
+
+const mapDispatch = {
+  fetchProducts,
+};
+
+export default connect(mapState, mapDispatch)(ProductList);
