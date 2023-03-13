@@ -1,3 +1,11 @@
 .container {
   max-width: 1128px;
 }
+
+.app-clickable {
+  cursor: pointer;
+  color: steelblue;
+}
+.app-clickable:hover {
+  font-size: large;
+}

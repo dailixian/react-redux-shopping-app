@@ -1,7 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { LineItem } from "../redux/dataType";
+import { RootStoreType } from "../redux/store";
 
-export default class Header extends Component {
+interface HeaderProps {
+  cart: LineItem[];
+}
+
+class Header extends Component<HeaderProps> {
   render() {
+    const { cart } = this.props;
     return (
       <div className="alert alert-primary">
         <div className="container">
@@ -11,7 +19,8 @@ export default class Header extends Component {
             </div>
             <div className="col">
               <h3>
-                <i className="bi bi-cart"></i>
+                <i className="bi bi-cart">{""}</i>
+                {cart && cart.length > 0 && <span>({cart.length})</span>}
               </h3>
             </div>
           </div>
@@ -20,3 +29,9 @@ export default class Header extends Component {
     );
   }
 }
+
+const mapState = (store: RootStoreType) => ({
+  cart: store.cartReducerState.cart,
+});
+
+export default connect(mapState)(Header);
