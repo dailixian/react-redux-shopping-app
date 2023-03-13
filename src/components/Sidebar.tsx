@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchBrands, fetchCategories } from "../redux/productActionCreator";
+import {
+  fetchBrands,
+  fetchCategories,
+  fetchProductsByBrand,
+  fetchProductsByCategory,
+} from "../redux/productActionCreator";
 import { RootStoreType } from "../redux/store";
 
 interface SidebarProps {
   categories: string[];
   brands: string[];
   fetchBrands: () => void;
+  fetchProductsByBrand: (brand: string) => void;
+  fetchProductsByCategory: (category: string) => void;
   fetchCategories: () => void;
 }
 
@@ -22,7 +29,11 @@ export class Sidebar extends Component<SidebarProps> {
         <h3>Shop by brands</h3>
         <ul className="list-group">
           {brands.map((b) => (
-            <li key={b} className="list-group-item">
+            <li
+              key={b}
+              className="list-group-item"
+              onClick={() => this.props.fetchProductsByBrand(b)}
+            >
               {b}
             </li>
           ))}
@@ -48,6 +59,8 @@ const mapState = (store: RootStoreType) => ({
 const mapDispatch = {
   fetchBrands,
   fetchCategories,
+  fetchProductsByBrand,
+  fetchProductsByCategory,
 };
 
 export default connect(mapState, mapDispatch)(Sidebar);

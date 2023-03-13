@@ -7,11 +7,31 @@ const productsUrl = `${baseUrl}/products`
 const categoriesUrl = `${baseUrl}/categories`
 const brandsUrl = `${baseUrl}/brands`
 
-export const fetchProducts = ()=> async (dispatch: Dispatch) => {
+export const fetchProducts = () => async (dispatch: Dispatch) => {
     try {
         const resp = await axios.get(productsUrl);
         const products = resp.data as Product[];
         dispatch({ type: FETCH_PRODUCTS, payload: products })
+    } catch (error) {
+        console.log(error)
+        dispatch({ type: FETCH_PRODUCTS_ERROR, payload: error })
+    }
+}
+
+export const fetchProductsByBrand = (brand: string) => async (dispatch: Dispatch) => {
+    try {
+        const resp = await axios.get(productsUrl, { params: { brand } });
+        dispatch({ type: FETCH_PRODUCTS, payload: resp.data })
+    } catch (error) {
+        console.log(error)
+        dispatch({ type: FETCH_PRODUCTS_ERROR, payload: error })
+    }
+}
+
+export const fetchProductsByCategory= (category: string) => async (dispatch: Dispatch) => {
+    try {
+        const resp = await axios.get(productsUrl, { data: { category } });
+        dispatch({ type: FETCH_PRODUCTS, payload: resp.data })
     } catch (error) {
         console.log(error)
         dispatch({ type: FETCH_PRODUCTS_ERROR, payload: error })
@@ -27,7 +47,7 @@ export const fetchCategories = () => async (dispatch: Dispatch) => {
         console.log(error)
         dispatch({ type: FETCH_CATEGORIES, payload: error })
     }
-    
+
 }
 
 export const fetchBrands = () => async (dispatch: Dispatch) => {
@@ -38,5 +58,5 @@ export const fetchBrands = () => async (dispatch: Dispatch) => {
         console.log(error)
         dispatch({ type: FETCH_BRANDS, payload: error })
     }
-    
+
 }
