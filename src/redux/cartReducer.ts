@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, INCREASE_QUANTITY, REMOVE_FROM_CART } from "./actionTypes";
+import { ADD_TO_CART, DECREASE_QUANTITY, EMPTY_CART, INCREASE_QUANTITY, REMOVE_FROM_CART } from "./actionTypes";
 import { LineItem } from "./dataType";
 
 interface CartState {
@@ -51,6 +51,10 @@ const cartReducer = (state: CartState = initialCartState, action: CartAction) =>
             cart.splice(index, 1);
         }
         return { ...state, cart }
+    }
+
+    if (action.type === EMPTY_CART) {
+        return { ...state, cart: [] }
     }
     return { ...state }
 }

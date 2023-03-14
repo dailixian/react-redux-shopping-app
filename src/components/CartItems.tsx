@@ -1,22 +1,37 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { removeCart } from "../redux/cartActionCreator";
+import { emptyCart, removeFromCart } from "../redux/cartActionCreator";
 import { LineItem, Product } from "../redux/dataType";
 import { RootStoreType } from "../redux/store";
 import AddToCartButton from "./AddToCartButton";
 
 interface CartItemsProps {
   cart: LineItem[];
-  removeCart: (product: Product) => void;
+  removeFromCart: (product: Product) => void;
+  emptyCart: () => void;
 }
 
 interface CartItemsState {}
 export class CartItems extends Component<CartItemsProps, CartItemsState> {
   render() {
-    const { cart, removeCart } = this.props;
+    const { cart, removeFromCart, emptyCart } = this.props;
+    if (cart.length === 0)
+      return (
+        <>
+          <div className="text-warning">Your cart is empty!</div>
+        </>
+      );
     return (
       <>
-        <h3>Items in your cart</h3>
+        <h3>
+          Items in your cart
+          <button
+            className="btn btn-link bi bi-trash"
+            onClick={() => emptyCart()}
+          >
+            Clear carts
+          </button>
+        </h3>
         <table className="table table-hover">
           <thead>
             <tr>
@@ -47,7 +62,7 @@ export class CartItems extends Component<CartItemsProps, CartItemsState> {
                 <td className="text-center">
                   <button
                     className="btn btn-link bi bi-trash"
-                    onClick={() => removeCart(li.product)}
+                    onClick={() => removeFromCart(li.product)}
                   ></button>
                 </td>
                 <td className="text-center">
@@ -67,6 +82,7 @@ const mapState = (store: RootStoreType) => ({
 });
 
 const mapDispatch = {
-  removeCart,
+  removeFromCart,
+  emptyCart,
 };
 export default connect(mapState, mapDispatch)(CartItems);
