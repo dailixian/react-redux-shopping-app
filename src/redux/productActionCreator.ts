@@ -28,13 +28,13 @@ export const fetchProductsByBrand = (brand: string) => async (dispatch: Dispatch
     }
 }
 
-export const fetchProductsByCategory= (category: string) => async (dispatch: Dispatch) => {
+export const fetchProductsByCategory = (category: string) => async (dispatch: Dispatch) => {
     try {
-        const resp = await axios.get(productsUrl, { data: { category } });
+        const resp = await axios.get(productsUrl, { params: { category } });
         dispatch({ type: FETCH_PRODUCTS, payload: resp.data })
     } catch (error) {
         console.log(error)
-        dispatch({ type: FETCH_PRODUCTS_ERROR, payload: error })
+        dispatch({ type: FETCH_PRODUCTS, payload: error })
     }
 }
 

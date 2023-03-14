@@ -34,14 +34,18 @@ export class Sidebar extends Component<SidebarProps> {
               className="list-group-item app-clickable"
               onClick={() => this.props.fetchProductsByBrand(b)}
             >
-              {b}
+              {b.toLowerCase()}
             </li>
           ))}
         </ul>
         <h3>Shop by categories</h3>
         <ul className="list-group">
           {categories.map((c) => (
-            <li key={c} className="list-group-item app-clickable">
+            <li
+              key={c}
+              className="list-group-item app-clickable"
+              onClick={() => this.props.fetchProductsByCategory(c)}
+            >
               {c.toLowerCase()}
             </li>
           ))}
