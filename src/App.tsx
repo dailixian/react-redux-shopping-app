@@ -23,6 +23,10 @@ function App() {
                 path="products-by-category/:category"
                 element={<ProductList />}
               ></Route>
+              <Route
+                path="/*"
+                element={<h3 className="text-danger">404 page not found!</h3>}
+              ></Route>
             </Route>
           </Routes>
         </BrowserRouter>
