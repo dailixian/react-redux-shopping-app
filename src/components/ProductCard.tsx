@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Product } from "../redux/dataType";
+import AddToCartButton from "./AddToCartButton";
 
 interface ProductCardProps {
-  product: Product
+  product: Product;
 }
 interface ProductCardState {}
-export class ProductCard extends Component<ProductCardProps,ProductCardState> {
+export class ProductCard extends Component<ProductCardProps, ProductCardState> {
   render() {
     const { product } = this.props;
     return (
@@ -19,7 +20,7 @@ export class ProductCard extends Component<ProductCardProps,ProductCardState> {
           <div className="card-body">
             <h5 className="card-title">{product.description}</h5>
             <p className="card-text">{product.quantity_per_unit}</p>
-            <button className="btn btn-primary">Add to cart</button>
+            <AddToCartButton product={product}></AddToCartButton>
           </div>
         </div>
       </>
