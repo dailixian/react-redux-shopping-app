@@ -9,3 +9,12 @@
 .app-clickable:hover {
   font-size: large;
 }
+.app-primary-link {
+  color: white;
+  text-decoration: none;
+}
+
+.app-primary-link:hover {
+  color: white;
+  text-decoration: none;
+}

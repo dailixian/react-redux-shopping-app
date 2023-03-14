@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { LineItem } from "../redux/dataType";
 import { RootStoreType } from "../redux/store";
 
@@ -15,12 +16,18 @@ class Header extends Component<HeaderProps> {
         <div className="container">
           <div className="row">
             <div className="col-10">
-              <h3>Shopping App</h3>
+              <h3>
+                <Link className="app-primary-link" to="/">
+                  Shopping App
+                </Link>
+              </h3>
             </div>
             <div className="col">
               <h3>
-                <i className="bi bi-cart">{""}</i>
-                {cart && cart.length > 0 && <span>({cart.length})</span>}
+                <Link className="app-primary-link" to="/cart-items">
+                  <i className="bi bi-cart">{""}</i>
+                  {cart && cart.length > 0 && <span>({cart.length})</span>}
+                </Link>
               </h3>
             </div>
           </div>

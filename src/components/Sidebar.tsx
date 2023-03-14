@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   fetchBrands,
   fetchCategories,
@@ -29,25 +30,27 @@ export class Sidebar extends Component<SidebarProps> {
         <h3>Shop by brands</h3>
         <ul className="list-group">
           {brands.map((b) => (
-            <li
+            <Link
+              to={"/products-by-brand/" + b}
               key={b}
               className="list-group-item app-clickable"
               onClick={() => this.props.fetchProductsByBrand(b)}
             >
               {b.toLowerCase()}
-            </li>
+            </Link>
           ))}
         </ul>
         <h3>Shop by categories</h3>
         <ul className="list-group">
           {categories.map((c) => (
-            <li
+            <Link
+              to={"/products-by-category/" + c}
               key={c}
               className="list-group-item app-clickable"
               onClick={() => this.props.fetchProductsByCategory(c)}
             >
               {c.toLowerCase()}
-            </li>
+            </Link>
           ))}
         </ul>
       </>
