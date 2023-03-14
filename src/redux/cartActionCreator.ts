@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, INCREASE_QUANTITY } from "./actionTypes";
+import { ADD_TO_CART, DECREASE_QUANTITY, INCREASE_QUANTITY, REMOVE_FROM_CART } from "./actionTypes";
 import { Product } from "./dataType";
 
 export const addToCart = (product: Product) => ({
@@ -11,5 +11,10 @@ export const increaseQuantity = (product: Product) => ({
 })
 export const decreaseQuantity = (product: Product) => ({
     type: DECREASE_QUANTITY,
+    payload: product
+})
+
+export const removeCart = (product: Product) => ({
+    type: REMOVE_FROM_CART,
     payload: product
 })

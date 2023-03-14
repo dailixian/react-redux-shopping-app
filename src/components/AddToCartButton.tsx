@@ -30,7 +30,7 @@ export class AddToCartButton extends Component<AddToCartButtonProps> {
     if (li) {
       jsx = (
         <>
-          <div className="row border border-primary">
+          <div className="row border border-primary app-add-to-cart-btn">
             <div className="col d-grid">
               <button
                 className="btn btn-primary"
