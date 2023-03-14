@@ -11,6 +11,6 @@ export interface Product {
 }
 
 export interface LineItem {
-    product?: Product,
+    product: Product,
     quantity: number,
 }
