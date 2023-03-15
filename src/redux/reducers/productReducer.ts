@@ -1,15 +1,10 @@
 import { FETCH_BRANDS, FETCH_CATEGORIES, FETCH_PRODUCTS } from "../actions/actionTypes";
-import { Product } from "../dataType";
+import { IAction, Product } from "../dataType";
 
 const initialState: State = {
     products: [],
     categories: [],
     brands: []
-}
-
-interface Action {
-    type: string;
-    payload?: any;
 }
 
 interface State {
@@ -18,7 +13,7 @@ interface State {
     brands: string[]
 }
 
-const productReducer = (state: State = initialState, action: Action) => {
+const productReducer = (state: State = initialState, action: IAction) => {
     if (action.type === FETCH_PRODUCTS) {
         return { ...state, products: action.payload }
     }

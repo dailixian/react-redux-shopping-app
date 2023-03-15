@@ -1,14 +1,11 @@
 import { LOGIN, LOGIN_ERROR, LOGOUT } from "../actions/actionTypes";
+import { IAction } from "../dataType";
 
 interface IState {
     token: string | undefined;
     loginError: string | undefined;
     loggedInUser: any;
     isAuthenticated: boolean;
-}
-interface IAction {
-    type: string;
-    payload?: any;
 }
 const initialState: IState = {
     token: undefined,

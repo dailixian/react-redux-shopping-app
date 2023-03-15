@@ -1,18 +1,13 @@
 import { ADD_TO_CART, DECREASE_QUANTITY, EMPTY_CART, INCREASE_QUANTITY, REMOVE_FROM_CART } from "../actions/actionTypes";
-import { LineItem } from "../dataType";
+import { IAction, LineItem } from "../dataType";
 
 interface CartState {
     cart: LineItem[]
 }
 
-interface CartAction {
-    type: string;
-    payload?: any;
-}
-
 const initialCartState = { cart: [] }
 
-const cartReducer = (state: CartState = initialCartState, action: CartAction) => {
+const cartReducer = (state: CartState = initialCartState, action: IAction) => {
 
     if (action.type === ADD_TO_CART) {
         const cart = [...state.cart];
