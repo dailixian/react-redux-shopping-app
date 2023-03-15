@@ -6,7 +6,7 @@ import {
   fetchCategories,
   fetchProductsByBrand,
   fetchProductsByCategory,
-} from "../redux/productActionCreator";
+} from "../redux/actions/productActionCreator";
 import { RootStoreType } from "../redux/store";
 
 interface SidebarProps {

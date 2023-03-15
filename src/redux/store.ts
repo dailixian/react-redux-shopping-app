@@ -1,6 +1,6 @@
 import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import thunk from "redux-thunk";
-import rootReducer from "./rootReducer";
+import rootReducer from "./reducers/rootReducer";
 
 const localStateName = "reduxState"
 export type RootStoreType = ReturnType<typeof store.getState>;

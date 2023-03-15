@@ -1,5 +1,5 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, EMPTY_CART, INCREASE_QUANTITY, REMOVE_FROM_CART } from "./actionTypes";
-import { LineItem } from "./dataType";
+import { ADD_TO_CART, DECREASE_QUANTITY, EMPTY_CART, INCREASE_QUANTITY, REMOVE_FROM_CART } from "../actions/actionTypes";
+import { LineItem } from "../dataType";
 
 interface CartState {
     cart: LineItem[]

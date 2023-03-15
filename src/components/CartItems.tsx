@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { emptyCart, removeFromCart } from "../redux/cartActionCreator";
+import { emptyCart, removeFromCart } from "../redux/actions/cartActionCreator";
 import { LineItem, Product } from "../redux/dataType";
 import { RootStoreType } from "../redux/store";
 import AddToCartButton from "./AddToCartButton";

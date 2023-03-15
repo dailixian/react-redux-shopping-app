@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import store from "./redux/store";
 import Layout from "./components/Layout";
 import CartItems from "./components/CartItems";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 path="products-by-category/:category"
                 element={<ProductList />}
               ></Route>
+              <Route path="login" element={<LoginForm />}></Route>
               <Route
                 path="/*"
                 element={<h3 className="text-danger">404 page not found!</h3>}

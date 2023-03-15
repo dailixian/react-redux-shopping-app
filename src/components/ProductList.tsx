@@ -7,7 +7,7 @@ import {
   fetchProducts,
   fetchProductsByBrand,
   fetchProductsByCategory,
-} from "../redux/productActionCreator";
+} from "../redux/actions/productActionCreator";
 import { RootStoreType } from "../redux/store";
 import ProductCard from "./ProductCard";
 

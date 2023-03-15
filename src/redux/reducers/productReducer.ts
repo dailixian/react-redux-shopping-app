@@ -1,7 +1,7 @@
-import { FETCH_BRANDS, FETCH_CATEGORIES, FETCH_PRODUCTS } from "./actionTypes";
-import { Product } from "./dataType";
+import { FETCH_BRANDS, FETCH_CATEGORIES, FETCH_PRODUCTS } from "../actions/actionTypes";
+import { Product } from "../dataType";
 
-const initialState = {
+const initialState: State = {
     products: [],
     categories: [],
     brands: []

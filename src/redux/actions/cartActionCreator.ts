@@ -1,5 +1,5 @@
 import { ADD_TO_CART, DECREASE_QUANTITY, EMPTY_CART, INCREASE_QUANTITY, REMOVE_FROM_CART } from "./actionTypes";
-import { Product } from "./dataType";
+import { Product } from "../dataType";
 
 export const addToCart = (product: Product) => ({
     type: ADD_TO_CART,

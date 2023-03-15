@@ -4,7 +4,7 @@ import {
   addToCart,
   decreaseQuantity,
   increaseQuantity,
-} from "../redux/cartActionCreator";
+} from "../redux/actions/cartActionCreator";
 import { LineItem, Product } from "../redux/dataType";
 import { RootStoreType } from "../redux/store";
 

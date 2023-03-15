@@ -1,11 +1,8 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import { FETCH_BRANDS, FETCH_CATEGORIES, FETCH_PRODUCTS, FETCH_PRODUCTS_ERROR } from "./actionTypes";
-import { Product } from "./dataType";
-const baseUrl = "http://localhost:8080";
-const productsUrl = `${baseUrl}/products`
-const categoriesUrl = `${baseUrl}/categories`
-const brandsUrl = `${baseUrl}/brands`
+import { Product } from "../dataType";
+import { brandsUrl, categoriesUrl, productsUrl } from "../../urls";
 
 export const fetchProducts = () => async (dispatch: Dispatch) => {
     try {
