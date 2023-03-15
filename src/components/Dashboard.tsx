@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import withAuthentication from "../hoc/withAuthentication";
 import { RootStoreType } from "../redux/store";
 
 interface DashboardProps {
@@ -23,4 +24,4 @@ const mapState = (store: RootStoreType) => ({
 
 const mapDispatch = {};
 
-export default connect(mapState, mapDispatch)(Dashboard);
+export default connect(mapState, mapDispatch)(withAuthentication(Dashboard));

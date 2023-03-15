@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import CartItems from "./components/CartItems";
 import LoginForm from "./components/LoginForm";
 import Dashboard from "./components/Dashboard";
+import OrderHistory from "./components/OrderHistory";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               ></Route>
               <Route path="login" element={<LoginForm />}></Route>
               <Route path="dashboard" element={<Dashboard />}></Route>
+              <Route path="order-history" element={<OrderHistory />}></Route>
               <Route
                 path="/*"
                 element={<h3 className="text-danger">404 page not found!</h3>}

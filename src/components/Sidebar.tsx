@@ -70,6 +70,12 @@ export class Sidebar extends Component<SidebarProps> {
           )}
           {this.props.isAuthenticated && (
             <>
+              <Link className="list-group-item" to="/dashboard">
+                Dashboard
+              </Link>
+              <Link className="list-group-item" to="/order-history">
+                Order history
+              </Link>
               <Link
                 className="app-clickable list-group-item"
                 to="login"
