@@ -5,6 +5,7 @@ import store from "./redux/store";
 import Layout from "./components/Layout";
 import CartItems from "./components/CartItems";
 import LoginForm from "./components/LoginForm";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 element={<ProductList />}
               ></Route>
               <Route path="login" element={<LoginForm />}></Route>
+              <Route path="dashboard" element={<Dashboard />}></Route>
               <Route
                 path="/*"
                 element={<h3 className="text-danger">404 page not found!</h3>}
