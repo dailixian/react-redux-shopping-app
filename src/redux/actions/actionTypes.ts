@@ -14,6 +14,8 @@ export const EMPTY_CART = "EMPTY_CART"
 //Order
 export const FETCH_ORDER_HISTORY = 'FETCH_ORDER_HISTORY';
 export const FETCH_ORDER_HISTORY_ERROR = 'FETCH_ORDER_HISTORY_ERROR'
+export const CREATE_ORDER = 'CREATE_ORDER'
+export const CREATE_ORDER_ERROR = 'CREATE_ORDER_ERROR'
 
 //Auth
 export const LOGIN = 'LOGIN';

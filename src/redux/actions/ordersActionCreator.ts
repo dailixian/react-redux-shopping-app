@@ -1,7 +1,9 @@
 import axios from "axios";
 import { ordersUrl } from "../../urls";
-import { FETCH_ORDER_HISTORY, FETCH_ORDER_HISTORY_ERROR } from "./actionTypes";
+import { CREATE_ORDER, CREATE_ORDER_ERROR, FETCH_ORDER_HISTORY, FETCH_ORDER_HISTORY_ERROR } from "./actionTypes";
 import store from "../store";
+import { LineItem, Order } from "../dataType";
+import { Dispatch } from "redux";
 
 // export const fetchOrderHistory = () => async (dispatch: Dispatch) => {
 //     try {
@@ -23,5 +25,21 @@ export const fetchOrderHistory = async () => {
     }
     catch (err: any) {
         return { type: FETCH_ORDER_HISTORY_ERROR, payload: err.response.data };
+    }
+};
+
+export const createOrder = (cart: LineItem[]) => async (dispatch: Dispatch) => {
+    try {
+        const order: Order = {};
+        order.orderDate = new Date().toISOString();
+        order.lineItems = [...cart];
+        order.orderStatus = 'Pending';
+
+        const { token } = store.getState().authReducerState;
+        const resp = await axios.post(ordersUrl, order, { headers: { Authorization: `Bearer ${token}` } });
+        return { type: CREATE_ORDER, payload: resp.data };
+    }
+    catch (err: any) {
+        return { type: CREATE_ORDER_ERROR, payload: err.response.data };
     }
 };
